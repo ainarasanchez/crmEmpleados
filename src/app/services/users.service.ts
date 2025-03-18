@@ -3,6 +3,11 @@ import { inject, Injectable } from '@angular/core';
 import { IUser } from '../interfaces/iuser.interface';
 import { lastValueFrom } from 'rxjs';
 
+type Response = {
+  success: string;
+  token: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
