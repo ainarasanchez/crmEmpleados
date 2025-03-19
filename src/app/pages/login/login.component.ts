@@ -26,7 +26,7 @@ export class LoginComponent {
       if (response.success) {
         //estoy logado correctamente y entro a dashboard
         this.router.navigate(['/dashboard'])
-      } 
+      }
     } catch (msg: any) {
       toast.error(msg.error.error)
     }
