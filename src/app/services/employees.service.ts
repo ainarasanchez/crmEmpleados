@@ -29,9 +29,25 @@ export class EmployeesService {
         'Authorization': localStorage.getItem('token') || ""
       })
     }
-      
+
     return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint, httpOptions)) */
 
+    return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint, this.getAuthorization()))
+
+  }
+
+  getById(id: string): Promise<IEmployee> {
+    return lastValueFrom(this.httpClient.get<IEmployee>(`${this.endPoint}/${id}`, this.getAuthorization()))
+  }
+
+  /* OPCIÓN 2: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria solo para este servicio */
+  getAuthorization() {
+    return {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': localStorage.getItem('token') || ""
+      })
+    }
   }
 
 
