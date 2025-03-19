@@ -10,4 +10,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class LoginComponent {
 
+  getLogin(form: any) {}
+
 }
