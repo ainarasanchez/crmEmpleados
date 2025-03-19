@@ -26,11 +26,9 @@ export class LoginComponent {
       if (response.success) {
         //estoy logado correctamente y entro a dashboard
         this.router.navigate(['/dashboard'])
-      } else {
-        alert('Usuario o contraseña incorrectos')
-      }
-    } catch (error) {
-      console.error(error)
+      } 
+    } catch (msg: any) {
+      alert(msg.error.error)
     }
 
   }
