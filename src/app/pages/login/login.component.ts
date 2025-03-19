@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 
 @Component({
@@ -11,9 +12,8 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
   usersService = inject(UsersService);
-  router = inject(Router)
+  router = inject(Router);
 
   async getLogin(form: any) {
     try {
@@ -28,9 +28,7 @@ export class LoginComponent {
         this.router.navigate(['/dashboard'])
       } 
     } catch (msg: any) {
-      alert(msg.error.error)
+      toast.error(msg.error.error)
     }
-
   }
-
 }
