@@ -35,7 +35,7 @@ export class EmployeesService {
 
   /* OPCIÓN 2: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria solo para este servicio */
   
-  getAll(): Promise<IEmployee[]> {
+  /*getAll(): Promise<IEmployee[]> {
     return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint, this.getAuthorization()))
   }
 
@@ -50,9 +50,23 @@ export class EmployeesService {
         'Authorization': localStorage.getItem('token') || ""
       })
     }
-  }
+  }*/
 
   /*OPCIÓN 3: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria para todas las peticiones de la aplicación */
+  getAll(): Promise<IEmployee[]> {
+    return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint))
+  }
 
+  getById(id: string): Promise<IEmployee> {
+    return lastValueFrom(this.httpClient.get<IEmployee>(`${this.endPoint}/${id}`))
+  }
 
+  private getAuthorization() {
+    return {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': localStorage.getItem('token') || ""
+      })
+    }
+  }
 }
