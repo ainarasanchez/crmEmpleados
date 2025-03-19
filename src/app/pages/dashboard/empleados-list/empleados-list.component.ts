@@ -16,9 +16,9 @@ export class EmpleadosListComponent {
     try {
       this.arrEmployees = await this.employeesService.getAll();
       console.log(this.arrEmployees);
-    } catch (error) {
-      console.error('Error fetching employees', error);
+    } catch (msg: any) {
+      console.error('Error', msg.error.error);
     }
   }
-
+  
 }
