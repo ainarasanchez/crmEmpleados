@@ -25,6 +25,7 @@ export class LoginComponent {
         // clear() => limpiar todo el localstorage
       if (response.success) {
         //estoy logado correctamente y entro a dashboard
+        localStorage.setItem('token', response.token)
         this.router.navigate(['/dashboard'])
       }
     } catch (msg: any) {
