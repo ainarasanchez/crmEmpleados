@@ -19,10 +19,10 @@ export class LoginComponent {
     try {
       let response = await this.usersService.login(form.value);
       //localstorage / cuatro metodos almecena informacion como texto
-      // getItem() => obtener un dato del localstorage
-      // setItem() => guardar un dato del localstorage
-      // removeItem() => borrar un dato del localstorage
-      // clear() => limpiar todo el localstorage
+        // getItem() => obtener un dato del localstorage
+        // setItem() => guardar un dato del localstorage
+        // removeItem() => borrar un dato del localstorage
+        // clear() => limpiar todo el localstorage
       if (response.success) {
         //estoy logado correctamente y entro a dashboard
         this.router.navigate(['/dashboard'])
