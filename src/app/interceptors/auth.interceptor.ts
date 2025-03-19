@@ -10,5 +10,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       'Authorization': localStorage.getItem('token') || ""
     }
   })
-  return next(req);
+  return next(cloneRequest);
 };
