@@ -18,11 +18,10 @@ export class EmployeesService {
    */
 
   //Mi peticion necesita para ser validada el token de autorización para devolver datos del servidor
-  getAll(): Promise<IEmployee[]> {
 
-
-    /* OPCIÓN 1: se usa, siempre y cuando cada funcion del servicio tenga una cabecera distinta, vamos crear una cabecera, que sera un varible que contiene el token de autorización.
-
+  /* OPCIÓN 1: se usa, siempre y cuando cada funcion del servicio tenga una cabecera distinta, vamos crear una cabecera, que sera un varible que contiene el token de autorización.*/
+  
+  /*  getAll(): Promise<IEmployee[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
@@ -30,17 +29,20 @@ export class EmployeesService {
       })
     }
 
-    return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint, httpOptions)) */
+    return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint, httpOptions)) 
+  } */
 
+
+  /* OPCIÓN 2: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria solo para este servicio */
+  
+  getAll(): Promise<IEmployee[]> {
     return lastValueFrom(this.httpClient.get<IEmployee[]>(this.endPoint, this.getAuthorization()))
-
   }
 
   getById(id: string): Promise<IEmployee> {
     return lastValueFrom(this.httpClient.get<IEmployee>(`${this.endPoint}/${id}`, this.getAuthorization()))
   }
 
-  /* OPCIÓN 2: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria solo para este servicio */
   private getAuthorization() {
     return {
       headers: new HttpHeaders({
@@ -49,6 +51,8 @@ export class EmployeesService {
       })
     }
   }
+
+  /*OPCIÓN 3: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria para todas las peticiones de la aplicación */
 
 
 }
