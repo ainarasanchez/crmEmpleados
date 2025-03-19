@@ -8,6 +8,14 @@ export const routes: Routes = [
     { path: "", pathMatch: "full", redirectTo: "home" },
     { path: "home", component: HomeComponent },
     { path: "login", component: LoginComponent },
-    { path: "dashboard", component: DashboardComponent, canActivate: [loginGuard]},
+    { path: "dashboard", component: DashboardComponent, canActivate: [loginGuard], children: 
+        [
+            { path: '', pathMatch: 'full', redirectTo: 'empleados' },
+            { path: 'empleados', component:  },
+            { path: 'empleado/new', component:  },
+            { path: 'empleado/:idEmployee', component:  },
+            { path: 'empleado/update/:idEmployee', component:  }
+          ]
+    },
     { path: "**", redirectTo: 'home' }
 ];
