@@ -8,5 +8,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './dashboard-nav.component.css'
 })
 export class DashboardNavComponent {
+  logOut() {
+    // la funcion logout es eliminar el token y redirigir a login
+  }
 
 }
