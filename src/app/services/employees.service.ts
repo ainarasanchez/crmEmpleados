@@ -41,7 +41,7 @@ export class EmployeesService {
   }
 
   /* OPCIÓN 2: Creo una funcion interceptora que devuelve las cabeceras que necesito para todas las peticiones de empleados. Esta funcion seria solo para este servicio */
-  getAuthorization() {
+  private getAuthorization() {
     return {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
