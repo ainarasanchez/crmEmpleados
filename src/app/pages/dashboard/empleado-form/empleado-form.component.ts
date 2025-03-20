@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-empleado-form',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './empleado-form.component.css'
 })
 export class EmpleadoFormComponent {
+  @Input() idEmployee: string = ""
+
+  ngOnInit() {
+    console.log(this.idEmployee)
+  }
 
 }
