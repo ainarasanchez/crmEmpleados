@@ -11,7 +11,7 @@ import { EmployeesService } from '../../services/employees.service';
   styleUrl: './buttons.component.css'
 })
 export class ButtonsComponent {
-  @Input() myEmployee!: IEmployee;
+  @Input() myEmployee: IEmployee | any;
 
   employeesService = inject(EmployeesService)
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
