@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IEmployee } from '../../interfaces/iemployee.interface';
 
 @Component({
   selector: 'app-row-employee',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './row-employee.component.css'
 })
 export class RowEmployeeComponent {
+  @Input() myEmployee!: IEmployee;
 
 }

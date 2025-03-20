@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         @for( employee of arrEmployees; track employee._id){
-            <app-row-employee></app-row-employee>
+            <app-row-employee [myEmployee]="employee"></app-row-employee>
         }
       <!-- Más filas de empleados aquí -->
     </tbody>
