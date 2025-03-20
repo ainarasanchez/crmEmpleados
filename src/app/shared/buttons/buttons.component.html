@@ -1,5 +1,6 @@
 <button class="bg-blue-500 text-white px-2 py-1 me-3 rounded"   
-[routerLink]="['/dashboard', 'empleado', 'update',  myEmployee?._id]">Editar</button>
+[routerLink]="['/dashboard', 'empleado', 'update',  myEmployee._id]">Editar</button>
 <button class="bg-red-500 text-white px-2 py-1 me-3 rounded">Borrar</button>
 <button class="bg-yellow-500 text-white px-2 py-1 me-3 rounded">Volver</button>
-<button class="bg-green-500 text-white px-2 py-1 me-3 rounded">Ver Detalle</button>
+<button class="bg-green-500 text-white px-2 py-1 me-3 rounded"
+[routerLink]="['/dashboard', 'empleado', 'update',  myEmployee._id]">Ver Detalle</button>

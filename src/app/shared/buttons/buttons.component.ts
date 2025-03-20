@@ -11,4 +11,8 @@ import { IEmployee } from '../../interfaces/iemployee.interface';
 export class ButtonsComponent {
   @Input() myEmployee!: IEmployee;
 
+  ngOnInit() {
+    console.log('buttons', this.myEmployee);
+  }
+
 }
