@@ -13,7 +13,7 @@ import { toast } from 'ngx-sonner';
 export class EmpleadoViewComponent {
 
   @Input() idEmployee: string = ""
-  employee: IEmployee = { _id: "", nombre: "", apellidos: "", salario: 0, telefono: "", departamento: "", email: "" };
+  employee!: IEmployee | any;
   employeesService = inject(EmployeesService)
 
   async ngOnInit() {
