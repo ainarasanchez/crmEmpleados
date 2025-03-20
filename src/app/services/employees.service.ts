@@ -60,4 +60,8 @@ export class EmployeesService {
   getById(id: string): Promise<IEmployee> {
     return lastValueFrom(this.httpClient.get<IEmployee>(`${this.endPoint}/${id}`))
   }
+
+  delete(id: string): Promise<IEmployee> {
+    return lastValueFrom(this.httpClient.delete<IEmployee>(`${this.endPoint}/${id}`));
+  }
 }
