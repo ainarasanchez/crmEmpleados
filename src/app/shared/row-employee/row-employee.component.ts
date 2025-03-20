@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IEmployee } from '../../interfaces/iemployee.interface';
 import { ButtonsComponent } from "../buttons/buttons.component";
 
@@ -10,5 +10,10 @@ import { ButtonsComponent } from "../buttons/buttons.component";
 })
 export class RowEmployeeComponent {
   @Input() myEmployee!: IEmployee;
+  @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
+
+  deleteEmployee(event: Boolean) {
+    this.deleteItemEmit.emit(event)
+  }
 
 }
