@@ -6,6 +6,6 @@ export interface IEmployee {
     telefono: string;
     departamento: string;
     salario: number;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
