@@ -15,6 +15,7 @@ export class ButtonsComponent {
 
   employeesService = inject(EmployeesService)
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
+  // Esto se añade después: 
   router = inject(Router);
   @Input() volver: Boolean = false;
 
@@ -27,6 +28,7 @@ export class ButtonsComponent {
           //borrado el empleado llamando al servicio
           await this.employeesService.delete(id)
           //window.location.href = '/dashboard/empleados'
+          // Esto se añade luego:
           //si tenemos un output en la etiqueta del componente realizamos el output y si no redirigimos a la ruta empleados
           if (this.deleteItemEmit.observed) {
             this.deleteItemEmit.emit(true)
