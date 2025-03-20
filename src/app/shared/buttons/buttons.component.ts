@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { IEmployee } from '../../interfaces/iemployee.interface';
 
 @Component({
   selector: 'app-buttons',
@@ -8,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './buttons.component.css'
 })
 export class ButtonsComponent {
+  @Input() myEmployee!: IEmployee;
 
 }
