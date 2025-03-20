@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { IEmployee } from '../../../interfaces/iemployee.interface';
 import { EmployeesService } from '../../../services/employees.service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-empleados-list',
@@ -15,9 +16,9 @@ export class EmpleadosListComponent {
   async ngOnInit() {
     try {
       this.arrEmployees = await this.employeesService.getAll();
-      console.log(this.arrEmployees);
+      // console.log(this.arrEmployees);
     } catch (msg: any) {
-      console.error('Error', msg.error.error);
+      toast.error(msg.error.error);
     }
   }
   
