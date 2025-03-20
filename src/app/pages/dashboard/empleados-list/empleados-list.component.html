@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         @for( employee of arrEmployees; track employee._id){
-        <tr app-row-employee [myEmployee]="employee"></tr>
+        <tr app-row-employee [myEmployee]="employee" (deleteItemEmit)="deleteEmployee($event)"></tr>
         }
       <!-- Más filas de empleados aquí -->
     </tbody>
