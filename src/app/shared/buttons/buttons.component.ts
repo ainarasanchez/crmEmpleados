@@ -17,6 +17,8 @@ export class ButtonsComponent {
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
   // Esto se añade después: 
   router = inject(Router);
+
+  // Para botón de volver
   @Input() volver: Boolean = false;
 
 
