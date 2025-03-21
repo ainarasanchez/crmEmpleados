@@ -64,4 +64,17 @@ export class EmployeesService {
   delete(id: string): Promise<IEmployee> {
     return lastValueFrom(this.httpClient.delete<IEmployee>(`${this.endPoint}/${id}`));
   }
+
+  update(employee: IEmployee): Promise<IEmployee> {
+    //destructuring
+    let { _id, ...employeeBody } = employee;
+    return lastValueFrom(this.httpClient.put<IEmployee>(`${this.endPoint}/${_id}`, employeeBody))
+  }
+
+  insert(employee: IEmployee): Promise<IEmployee> {
+    let { _id, ...employeeBody } = employee;
+    return lastValueFrom(this.httpClient.post<IEmployee>(this.endPoint, employeeBody))
+  }
+
+
 }
