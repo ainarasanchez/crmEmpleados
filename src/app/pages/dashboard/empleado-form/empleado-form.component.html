@@ -1,7 +1,8 @@
 <section class="container">
     <h1 class="text-3xl font-bold mb-4">Empleados</h1>
     <hr>
-    <form class="max-w-screen-xl mx-auto p-2 bg-white rounded shadow-md">
+    <form class="max-w-screen-xl mx-auto p-2 bg-white rounded shadow-md" [formGroup]="employeeForm"
+    (ngSubmit)="getDataForm()">
       <input type="hidden" formControlName="_id">
       <div class="mb-4">
         <label for="nombre" class="block text-gray-700 font-bold mb-2">Nombre</label>
