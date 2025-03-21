@@ -17,4 +17,8 @@ export class EmpleadoFormComponent {
     // CRUD - Create - Read - Update - Delete un elemento o entidad
   }
 
+  getDataForm() {
+    
+  }
+
 }
