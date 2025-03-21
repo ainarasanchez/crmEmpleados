@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-empleado-form',
@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class EmpleadoFormComponent {
   @Input() idEmployee: string = ""
+  employeeForm: FormGroup = new FormGroup({}, [])
 
   ngOnInit() {
     console.log(this.idEmployee)
