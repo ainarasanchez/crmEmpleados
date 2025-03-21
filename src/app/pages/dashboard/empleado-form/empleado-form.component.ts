@@ -45,8 +45,17 @@ export class EmpleadoFormComponent {
 
   }
 
-  getDataForm() {
+  async getDataForm() {
+    
+    try {
+      if (this.employeeForm.value._id) {
+        //actualizando
+      } else {
+        //insertando
+      }
 
-  }
+    } catch (msg: any) {
 
+      }
+    }
 }
