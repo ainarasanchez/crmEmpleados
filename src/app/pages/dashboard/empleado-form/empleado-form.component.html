@@ -43,7 +43,7 @@
       <div class="flex justify-end">
         <input type="submit"
           class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value="Registrar">
+          [value]="employeeForm.get('_id')?.value ? 'Actualizar' : 'Registrar' ">
       </div>
     </form>
   </section>
