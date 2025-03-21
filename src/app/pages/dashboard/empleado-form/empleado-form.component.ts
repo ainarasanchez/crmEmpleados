@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-empleado-form',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './empleado-form.component.html',
   styleUrl: './empleado-form.component.css'
 })
