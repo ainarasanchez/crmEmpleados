@@ -46,15 +46,21 @@ export class EmpleadoFormComponent {
   }
 
   async getDataForm() {
-    
+    let response: IEmployee | any
     try {
       if (this.employeeForm.value._id) {
         //actualizando
+        response = await this.employeesService.update(this.employeeForm.value);
       } else {
         //insertando
+        response = await this.employeesService.insert(this.employeeForm.value)
       }
-
+      if (response.createdAt || response.updateAt) {
+        this.router.navigate(['/dashboard', 'empleados'])
+      }
+      
     } catch (msg: any) {
+      console.log(msg, msg.status)
 
       }
     }
