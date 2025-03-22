@@ -58,10 +58,11 @@ export class EmpleadoFormComponent {
       if (response.createdAt || response.updateAt) {
         this.router.navigate(['/dashboard', 'empleados'])
       }
-      
-    } catch (msg: any) {
-      console.log(msg, msg.status)
 
+    } catch (msg: any) {
+      if (msg.status === 400) {
+        msg.error.forEach((oneError: any) => toast.error(oneError.message))
       }
     }
+  }
 }
